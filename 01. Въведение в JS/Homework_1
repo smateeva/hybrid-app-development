@@ -1,0 +1,246 @@
+// зад.1
+function sum(arr){
+	let num_one = Number(arr[0]);
+	let num_two = Number(arr[1]);
+	let num_three = Number(arr[2]);
+
+	let sum = num_one + num_two + num_three;
+	console.log("Сборът на числата е: " + sum);
+}
+sum(['2', '3', '4']);
+
+// зад.2
+function calc_dds(arr) {
+	let sum = 0;
+	for(let price of arr){
+		sum += Number(price);
+	}
+	console.log("Сумата е: " + sum);
+
+	let dds = sum * 0.2;
+	console.log("ДДС-то е: " + dds.toFixed(2));
+
+	let suma = sum + dds;
+	console.log("Общата сума с ДДС е: " + suma.toFixed(2));
+}
+
+calc_dds(['1.50', '3.50', '4.80']);
+
+// зад.3
+function letter([string, letter]){
+	let br = 0;
+
+	for( let char of string){
+		if(char == letter){
+			br++;
+		}
+	}
+
+	console.log("Буквата се среща " + br + " пъти в низа");
+}
+
+letter(['hello', 'l']);
+// зад.4 
+function figura([w,h,W,H]){
+	let fig_one =  Number(w) * Number(h);
+	let fig_two = Number(W) * Number(H);
+
+	let ugul = Math.min(Number(w), Number(w) * Math.min(Number(h), Number(H)));
+
+	let plosht = fig_one + fig_two - ugul;
+
+	console.log("Площа е: " + plosht);
+}
+
+figura(['2','4','5','3']);
+
+//зад.5
+function visokosna(godina){
+	let  uslovie1 = godina % 4 === 0 && godina % 100 != 0;
+	let uslovie2 = godina % 400 ==0;
+
+	if(uslovie1 || uslovie2){
+		console.log( godina + ' е високосна');
+		return;
+	}
+	console.log( godina + ' не е високосна');
+}
+visokosna(1999);
+visokosna(2024);
+
+// зад.6 
+function niz(posledno){
+	let result = '';
+	for(let i =1; i<= posledno; i++){
+		result +=i;
+	}
+	console.log("Слепените числа са: " + result);
+}
+
+niz(5);
+niz(15);
+
+//зад.7
+function razstoqnie([x1, x2, y1, y2]){
+	let first = Math.pow((Number(x2) - Number(x1)),2);
+	let second = Math.pow((Number(y2) - Number(y1)),2);
+
+	let result = Math.sqrt(first + second);
+
+	console.log("Разстоянието между двете точки е: " + result.toFixed(2));
+}
+
+razstoqnie(['5', '6', '7', '8']);
+
+// зад.8
+function boxes(butilki, kol){
+	let result = Math.ceil(butilki/kol);
+
+	console.log("Необходими са " + result + " кутии");
+}
+
+boxes('10', '5');
+
+// зад.9
+function triugulnik(array){
+	array = array.map(Number);
+
+	let a = array[0];
+	let b = array[1];
+	let c = array[2];
+
+	let p = (a + b + c) / 2;
+
+	let plosht = Math.sqrt(p * (p - a)*(p - b)*(p - c));
+
+	console.log("Площта е: " + plosht.toFixed(2));
+}
+
+triugulnik(['5','8','6']);
+
+// зад.10
+function conus(parametri) {
+	let radius = parametri[0];
+	let height = parametri[1];
+
+	let volume = (1 / 3) * Math.PI * Math.pow(radius, 2) * height;
+
+	
+	let Height = Math.sqrt(Math.pow(radius, 2) + Math.pow(height, 2));
+	let area = Math.PI * radius * (radius + Height);
+
+	console.log("Обемa на конуса e: " + volume.toFixed(2));
+	console.log("Повърхността на конуса е: " + area.toFixed(2));
+}
+
+conus([3, 5]);
+
+//зад.11
+function chetnoNechetno(chislo){
+	if (chislo % 2 == 0){
+		console.log(chislo + " е четно");
+	}
+	else{
+		console.log(chislo + " е нечетно");
+	}
+
+}
+
+chetnoNechetno('5');
+chetnoNechetno('2');
+chetnoNechetno('7');
+
+// зад.12
+function prime(number) {
+	if (number <= 1) {
+		console.log(number + " не е просто"); 
+		return;
+	}
+	for (let i = 2; i <= Math.sqrt(number); i++) {
+		if (number % i === 0) {
+			console.log(number + " не е просто"); 
+			return;
+		}
+	}
+	console.log(number + " е просто"); 
+}
+
+prime(7);
+prime(12);
+
+//зад.13
+function distanciq(danni) {
+	let V1 = danni[0] * 1000 / 3600; 
+	let V2 = danni[1] * 1000 / 3600; 
+	let T = danni[2]; 
+
+	let distance1 = V1 * T; 
+	let distance2 = V2 * T; 
+
+	let distance = distance1 + distance2; 
+
+	console.log("Разстояние между обектите в края на периода: " + distance.toFixed(2) + " метра");
+}
+
+distanciq([30, 20, 3600]); 
+
+//зад.14
+function obj(array){
+	let object = {};
+	object[array[0]] = array[1];
+	object[array[2]] = array[3];
+	object[array[4]] = array[5];
+
+	console.log(object);
+}
+
+obj(['name', 'Pesho', 'age', '23', 'gender', 'male']);
+
+//зад.15
+function big([a,b,c]){
+	[a,b,c] - [a,b,c].map(Number);
+	console.log(Math.max(a,b,c) + " e най-голямо");
+}
+big(['1','3','5']);
+
+//зад.16
+function calculator(num1, num2, operator) {
+	let result;
+
+	switch (operator) {
+	case '+':
+		result = num1 + num2;
+		break;
+	case '-':
+		result = num1 - num2;
+		break;
+	case '*':
+		result = num1 * num2;
+		break;
+	case '/':
+		result = num1 / num2;
+		break;
+	default:
+		return "Невалиден оператор";
+	}
+
+	return result;
+}
+console.log(calculator(5, 3, '+'));  
+console.log(calculator(10, 4, '-')); 
+console.log(calculator(6,  7,'*')); 
+
+//зад.17
+function upper(izraz) {
+	
+	let vhod = izraz.match(/\b\w+\b/g);
+	
+	let pr = vhod.map(vhod => vhod.toUpperCase());
+	
+	let result = pr.join(', ');
+
+	return result;
+}
+let izraz = 'Hi, how are you?';
+let pr_izraz = upper(izraz);
+console.log(pr_izraz);
